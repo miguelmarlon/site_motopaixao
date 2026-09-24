@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>@motopaixao04 | Links</title>
+  <meta name="description" content="Confira os melhores produtos e ofertas do @motopaixao04 na Shopee e no Mercado Livre.">
+
+  <!-- ===== Open Graph / Twitter Card =====
+       Controla como o link aparece ao ser colado no WhatsApp, Instagram,
+       Facebook etc: título, descrição e imagem de prévia.
+       IMPORTANTE: "og:image" e "og:url" pedem uma URL ABSOLUTA (com
+       https://dominio...). Assim que o site tiver um domínio definitivo,
+       troque os dois valores abaixo pela URL real — enquanto isso, alguns
+       apps podem não exibir a prévia da imagem corretamente. -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="@motopaixao04 | Links">
+  <meta property="og:description" content="Estrada, aventura e as melhores viagens de moto. Confira os produtos que uso e recomendo.">
+  <meta property="og:image" content="img/logo-pagina.jpg">
+  <!-- <meta property="og:url" content="https://SEU-DOMINIO-AQUI"> -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="@motopaixao04 | Links">
+  <meta name="twitter:description" content="Estrada, aventura e as melhores viagens de moto. Confira os produtos que uso e recomendo.">
+  <meta name="twitter:image" content="img/logo-pagina.jpg">
+
+  <!-- Favicon: monograma "MP" nas cores da logo oficial -->
+  <link rel="icon" href="img/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+
+  <!-- Fontes do Google Fonts: Poppins (títulos, traço arredondado e forte,
+       no espírito da referência) + Inter (textos, ótima legibilidade) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&family=Anton&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="page">
+    <div class="card-container">
+
+      <!-- ===== Cabeçalho / Perfil ===== -->
+      <header class="profile">
+        <!-- Logo oficial da página (emblema circular, fundo preto). -->
+        <div class="avatar">
+          <img src="img/logo-pagina.jpg" alt="Logo motopaixao04 - Anderson &amp; Joyce" loading="eager" width="500" height="500">
+        </div>
+
+        <h1 class="profile-name">@motopaixao04</h1>
+        <p class="profile-bio">Estrada, aventura e as melhores viagens de moto 🏍️🛣️</p>
+
+        <!-- Foto de uma das viagens: reforça a identidade da página para quem chega -->
+        <img
+          class="cover-photo"
+          src="img/moto-viagem.jpg"
+          alt="Casal em cima da moto durante uma viagem"
+          loading="eager"
+          width="1122"
+          height="770"
+        >
+
+        <p class="profile-intro">
+          Separei os produtos e acessórios que uso e recomendo nas minhas viagens.
+          Dá uma olhada nas ofertas abaixo 👇
+        </p>
+      </header>
+
+      <!-- ===== Lista de Links ===== -->
+      <nav class="links" aria-label="Links principais">
+
+        <!-- Botão 1: Mercado Livre (cor oficial: amarelo #FFE600) -->
+        <a
+          class="link-btn link-ml"
+          href="https://meli.la/2cbmbAs"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="link-icon" aria-hidden="true">
+            <!-- Carrinho estilizado nas cores do Mercado Livre -->
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9" cy="20" r="1.4" fill="#2D3277"/>
+              <circle cx="17" cy="20" r="1.4" fill="#2D3277"/>
+              <path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L20.5 8H6.2" stroke="#2D3277" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="link-text">
+            <strong>Produtos Mercado Livre</strong>
+            <small>Equipamentos e acessórios</small>
+          </span>
+          <span class="link-arrow" aria-hidden="true">›</span>
+        </a>
+
+        <!-- Botão 2: Shopee (cor oficial: coral #EE4D2D) -->
+        <a
+          class="link-btn link-shopee"
+          href="https://collshp.com/motopaixao04438?share_channel_code=1&view=storefront"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="link-icon" aria-hidden="true">
+            <!-- Sacola estilizada nas cores da Shopee -->
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 8h12l-1 12H7L6 8Z" fill="#fff"/>
+              <path d="M9 8V6a3 3 0 0 1 6 0v2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="link-text">
+            <strong>Produtos Shopee</strong>
+            <small>Itens de viagem selecionados</small>
+          </span>
+          <span class="link-arrow" aria-hidden="true">›</span>
+        </a>
+
+      </nav>
+
+      <!-- ===== Rodapé ===== -->
+      <footer class="footer">
+        <p>&copy; <span id="year"></span> @motopaixao04. Todos os direitos reservados.</p>
+      </footer>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

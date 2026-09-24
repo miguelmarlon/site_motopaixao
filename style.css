@@ -1,0 +1,326 @@
+/* ==========================================================================
+   motopaixao — Linktree-style page
+   Mobile-first, com largura máxima controlada para uma ótima leitura no
+   desktop (simulando a visualização de um smartphone centralizado na tela).
+   ========================================================================== */
+
+/* ----- Tokens de cor / espaçamento ----- */
+:root {
+  --bg-color: #0f1115;              /* fundo escuro elegante */
+  --bg-gradient-1: #12151c;
+  --bg-gradient-2: #1a1d26;
+
+  --card-bg: #ffffff;
+  --card-bg-hover: #f4f4f5;
+
+  --text-primary: #f5f5f7;
+  --text-secondary: #a1a1aa;
+  --text-on-card: #18181b;
+  --text-on-card-secondary: #52525b;
+
+  --accent-shopee: #ee4d2d;
+  --accent-ml: #ffe600;
+  --accent-ml-text: #2d3277;
+
+  --radius-lg: 18px;
+  --radius-full: 999px;
+
+  /* Poppins para títulos (traço forte e arredondado, como na referência);
+     Inter para textos de apoio (ótima legibilidade em telas pequenas) */
+  --font-heading: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  /* Fonte de destaque só para o nome da página: traço bold/condensado com
+     pegada de capa de disco de rock, pedida pelo cliente */
+  --font-display: "Anton", var(--font-heading);
+
+  --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.25);
+  --shadow-card-hover: 0 6px 18px rgba(0, 0, 0, 0.35);
+
+  --max-width: 480px; /* largura "estilo celular" mantida também no desktop */
+}
+
+/* ----- Reset básico ----- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  background: radial-gradient(circle at top, var(--bg-gradient-2), var(--bg-gradient-1) 60%, var(--bg-color));
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ----- Layout geral ----- */
+.page {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 48px 16px 32px;
+}
+
+.card-container {
+  width: 100%;
+  max-width: var(--max-width);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ----- Perfil / Cabeçalho ----- */
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.avatar {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  background: linear-gradient(160deg, #3a3f4b, #22252c);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280; /* cinza neutro para o ícone genérico */
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+/* Quando a foto oficial for adicionada, basta trocar a <div class="avatar">
+   por uma tag <img>; a regra abaixo já garante o recorte circular. */
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-icon {
+  width: 52px;
+  height: 52px;
+}
+
+.profile-name {
+  margin-top: 18px;
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 400; /* Anton já é bold por natureza; peso extra deixa "engordado" demais */
+  letter-spacing: 0.01em;
+}
+
+.profile-bio {
+  margin-top: 6px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* Foto de capa (viagem de moto)
+   Sem cortes e sem caixa vazia: a altura fica em "auto", então o navegador
+   escala a imagem preservando a proporção real do arquivo (horizontal),
+   só limitando a largura máxima para deixá-la menor e discreta. */
+.cover-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 20px auto 0;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.profile-intro {
+  margin-top: 18px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  max-width: 34ch;
+}
+
+/* ----- Lista de links ----- */
+.links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.link-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 16px 18px;
+  background: var(--card-bg);
+  color: var(--text-on-card);
+  text-decoration: none;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  font-weight: 600;
+  font-size: 1rem;
+
+  /* transição suave para hover/active */
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+
+  /* melhora a resposta ao toque em mobile */
+  -webkit-tap-highlight-color: transparent;
+}
+
+.link-icon {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.link-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.25;
+}
+
+.link-text strong {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.link-text small {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  opacity: 0.75;
+}
+
+.link-arrow {
+  flex-shrink: 0;
+  font-size: 1.3rem;
+  transition: transform 0.18s ease;
+}
+
+/* ----- Cores oficiais de cada marketplace aplicadas ao cartão ----- */
+
+/* Shopee: coral */
+.link-shopee {
+  background: var(--accent-shopee);
+  color: #ffffff;
+  border-color: transparent;
+}
+.link-shopee .link-icon { background: rgba(255, 255, 255, 0.18); }
+.link-shopee .link-arrow { color: rgba(255, 255, 255, 0.85); }
+.link-shopee:hover { background: #d9431f; }
+.link-shopee:active,
+.link-shopee.is-touching { background: #c53c1b; }
+
+/* Mercado Livre: amarelo */
+.link-ml {
+  background: var(--accent-ml);
+  color: var(--accent-ml-text);
+  border-color: transparent;
+}
+.link-ml .link-icon { background: rgba(45, 50, 119, 0.12); }
+.link-ml .link-arrow { color: var(--accent-ml-text); }
+.link-ml:hover { background: #f5da00; }
+.link-ml:active,
+.link-ml.is-touching { background: #e6cc00; }
+
+/* ----- Estados de interação (hover / active / focus) -----
+   As cores de fundo de cada estado já são definidas nas regras de marca
+   (.link-shopee / .link-ml) acima; aqui ficam só os efeitos neutros de
+   elevação e toque, comuns aos dois botões. */
+.link-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.link-btn:hover .link-arrow {
+  transform: translateX(3px);
+}
+
+.link-btn:active,
+.link-btn.is-touching {
+  transform: translateY(0) scale(0.98);
+  box-shadow: var(--shadow-card);
+}
+
+.link-btn:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 3px;
+}
+
+/* ----- Rodapé ----- */
+.footer {
+  margin-top: 40px;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   Responsividade
+   ========================================================================== */
+
+/* Telas bem pequenas (celulares antigos / estreitos) */
+@media (max-width: 340px) {
+  .avatar {
+    width: 108px;
+    height: 108px;
+  }
+
+  .profile-name {
+    font-size: 1.75rem;
+  }
+
+  .link-btn {
+    padding: 14px 14px;
+    font-size: 0.92rem;
+  }
+}
+
+/* Desktop / telas largas: mantém a experiência "estilo celular" centralizada */
+@media (min-width: 768px) {
+  .page {
+    padding-top: 72px;
+    align-items: flex-start;
+  }
+
+  .card-container {
+    padding: 40px 32px 32px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  }
+
+  .link-btn:hover {
+    transform: translateY(-3px);
+  }
+}
